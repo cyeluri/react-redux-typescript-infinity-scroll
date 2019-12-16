@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+//import Router before we we use Link 
+import {BrowserRouter, Route} from 'react-router-dom';
+//Import Components
+import Cards from './components/CardsComp';
+import About from './components/AboutComp';
+import Credits from './components/CreditsComp';
 
-const App: React.FC = () => {
+//Import Header functional component 
+import Header from './components/layout/Header';
+
+
+const App: React.FC<{}> = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <div className="App">  
+        <div className='container'>
+          <Header></Header>
+          <Route exact path='/cards' component={Cards}/>
+          <Route exact path='/about'component={About}/>
+          <Route exact path='/credits' component={Credits}/>
+        </div>
+      </div>
+    </BrowserRouter>
+  );  
 }
 
 export default App;
