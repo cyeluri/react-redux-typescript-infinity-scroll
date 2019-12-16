@@ -3,7 +3,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Create App with typescript 
 
 npx create-react-app **--template typescript** _<app-name>_
-##
+
+## Redux packages
+
+npm i redux, react-redux redux-thunk
+
+_redux-thunk_ is for middleware which can make asynchronous calls from actions to external API's
+
+
+## Type-Definitions for React & Redux
+npm i react-dom
+npm i -D @types/react @types/react-dom @types/react-redux
+"react" - @types/react
+"react-dom" - @types/react-dom
+"redux" - (types included with npm package)*
+"react-redux" - @types/react-redux
+
+## instal node-sass
+
+npm i -D node-sass
+
+## 
+
 
 In the project directory, you can run:
 
