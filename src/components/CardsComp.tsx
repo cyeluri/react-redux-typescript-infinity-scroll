@@ -20,6 +20,7 @@ interface State {
 
 
 class CardsComp extends React.Component<Props, State> {
+    
     constructor(props:Props) {
         super(props);
     }
@@ -43,7 +44,6 @@ class CardsComp extends React.Component<Props, State> {
         </div>
         
         );
-        console.log('cards after fetch in comp ='+ this.props.cardsState);
     }
 }
 
