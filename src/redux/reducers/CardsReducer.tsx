@@ -1,9 +1,12 @@
-import {FETCH_CARDS} from '../actions/actionTypes'
+import {FETCH_CARDS, SEARCH_CARDS, SEARCH_ONCHANGE} from '../actions/actionTypes'
 import { Reducer } from 'react';
 
-const payload:Array<object> = [];
+const cards:Array<object> = [];
+const searchKey:string = '';
+
 const initialState:object = {
-    payload
+    cardsPayload: cards,
+    searchKey
 };
 
 const cardsReducer:Reducer<any,  any> = (state:any = initialState, action: any) => {
@@ -13,10 +16,24 @@ const cardsReducer:Reducer<any,  any> = (state:any = initialState, action: any) 
             // return state copy using spread operator
              return {
                 ...state,
-                payload: action.payload
+                cardsPayload: action.payload
             }      
-        }break;
-        
+        };break;
+
+        case SEARCH_CARDS : {
+            return {
+                ...state,
+                cardsPayload: action.payload
+            }      
+        };break;
+ 
+        case SEARCH_ONCHANGE : {
+            return {
+                ...state,
+                searchKey: action.payload
+            }      
+        };break;
+ 
         default: return state;
     }
 };
