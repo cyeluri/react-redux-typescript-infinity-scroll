@@ -33,21 +33,22 @@ class CardsComp extends React.Component<Props, State> {
     public render() {
         const cardsList = this.props.cardsState.map(
             (card:any) => (
-                <div key={card.id}>
-                    <p>
-                        <h3>Name :{card.name}</h3>
-                        <h3>Artist :{card.artist}</h3>
-                        <h3>Set Name :{card.setName}</h3>
-                        <h3>Original type :{card.originalType}</h3>
-                    </p>
-                    <img src={card.imageUrl}/>
+                  <div key={card.id} className='float-left'>
+                      <div className='card'>
+                          <h5 className='card-title card-header'>{card.name}</h5>
+                        <div className='card-body'>
+                            <img src={card.imageUrl} className='card-img-top'/>
+                            <p className="card-text">Artist :{card.artist}</p>
+                            <p className="card-text">Set Name :{card.setName}</p>
+                            <p className="card-text">Original type :{card.originalType}</p>
+                        </div>
+                      </div>
                 </div>
             )
         );
         return (
-        <div>
+        <div className="card-main">
             <CardsSearchComp />
-            <h1>Cards</h1>
             {cardsList}
         </div>
         

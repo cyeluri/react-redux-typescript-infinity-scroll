@@ -19,7 +19,7 @@ export const fetchCards = () =>  (dispatch:Dispatch<any>) => {
                 }
                 dispatch(res);
             }
-        );              
+        );           
     }
 
 export const searchCardInputOnChange = (searchKey:string) => (dispatch:Dispatch<any>) => {
@@ -33,7 +33,7 @@ export const searchCardInputOnChange = (searchKey:string) => (dispatch:Dispatch<
 
 export const searchCards = (cardName:string) =>  (dispatch:Dispatch<any>) => {        
     console.log('search Cards list');
-    axios.get('https://api.magicthegathering.io/v1/cards?pageSize=20'+';name='+cardName)
+    axios.get('https://api.magicthegathering.io/v1/cards?pageSize=20'+';type=Creature;name='+cardName)
     .then(
         response => {
             let res: {type:string, payload:Array<any>} = {
