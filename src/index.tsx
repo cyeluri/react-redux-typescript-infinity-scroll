@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './scss/_index.scss';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Providers - connects global state to entire App
 import {Provider} from 'react-redux';

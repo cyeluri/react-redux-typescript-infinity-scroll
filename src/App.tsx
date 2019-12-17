@@ -14,8 +14,8 @@ import Header from './components/layout/Header';
 const App: React.FC<{}> = () => {
   return (
     <BrowserRouter>
-      <div className="App">  
-        <div className='container'>
+      <div className="App">
+        <div className=''>
           <Header></Header>
           <Route exact path='/cards' component={Cards}/>
           <Route exact path='/about'component={About}/>
