@@ -7,8 +7,8 @@ const Header = (): ReactElement => {
         <div>
         <header className="App-header">
             <div className='headerStyle'>
-               <Link to="/cards" className='linkStyle'>Cards</Link>
-               <Link to="/about" className='linkStyle'>About</Link>
+               <Link to="/cards" className='linkStyle'>Cards</Link> |
+               <Link to="/about" className='linkStyle'>About</Link> |
                <Link to="/credits" className='linkStyle'>Credits</Link>
             </div>
         </header>
