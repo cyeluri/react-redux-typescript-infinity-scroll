@@ -23,6 +23,14 @@ npm i -D @types/react @types/react-dom @types/react-redux
 
 npm i -D node-sass
 
+## instal axios
+
+npm i axios  --save
+## 
+
+## instal react-bootstrap
+
+npm i --save react-bootstrap
 ## 
 
 
