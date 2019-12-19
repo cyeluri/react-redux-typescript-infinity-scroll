@@ -1,18 +1,16 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'react-router-dom';
- 
+import logo from '../../logo.svg';
+
 //Arrow Function
 const Header = (): ReactElement => {
     return (
-        <div>
-        <header className="App-header">
             <div className='headerStyle'>
-               <Link to="/cards" className='linkStyle'>Cards</Link> |
-               <Link to="/about" className='linkStyle'>About</Link> |
-               <Link to="/credits" className='linkStyle'>Credits</Link>
+                <img src={logo} className="navbar-brand App-logo" alt='logo'/>
+                    <Link to="/cards" className='linkStyle'>Cards</Link> |
+                    <Link to="/about" className='linkStyle'>About</Link> |
+                    <Link to="/credits" className='linkStyle'>Credits</Link>
             </div>
-        </header>
-        </div>
     )
 }
 

@@ -1,9 +1,10 @@
 import React, { FormEvent, ChangeEvent } from 'react'
 import { connect } from 'react-redux'
-import Button from 'react-bootstrap/Button';
+
 
 // import the cardActions for search
 import {searchCardInputOnChange, searchCards} from '../redux/actions/CardsActions';
+import CardsSortComp from './CardsSortComp';
 
 interface IProps {
     searchCardInputOnChange(searchKey:string):any;
@@ -32,15 +33,18 @@ class CardsSearchComp extends React.Component<IProps, IState> {
 
     render() {
         return (
-            <div className='main'>
-                <form onSubmit={this.onSubmit} className='input-group'> 
-                    <input placeholder='Search Cards...' className='form-control'
-                    name='searchKey' 
-                    value={this.props.searchKey}
-                    onChange={this.onChange} 
-                    />
-                    <input type='submit' value="Search" />
-                </form>
+            <div className=''>
+                <nav className="navbar navbar-light bg-light">
+                    <form onSubmit={this.onSubmit} className='input-group'> 
+                        <input placeholder='Search Cards...' className='form-control  mr-sm-2'
+                        name='searchKey' 
+                        value={this.props.searchKey}
+                        onChange={this.onChange} 
+                        />
+                        <input className='btn btn-outline-success my-2 my-sm-0' type='submit' value="Search" />
+                        <CardsSortComp/>
+                    </form>
+                </nav>
             </div>
         )
     }

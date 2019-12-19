@@ -78,3 +78,18 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## HighSpot coding excersie Referecnes
+
+1. React
+2. Redux
+3. Typescript
+4. bootstrap
+    https://react-bootstrap.github.io/getting-started/introduction
+    https://getbootstrap.com/docs/4.4/components/navbar/?
+    https://blog.logrocket.com/how-to-use-bootstrap-with-react-a354715d1121/
+    https://codepen.io/gungorbudak/pen/ooKNpz
+5. Infinity Scroll
+    https://stackoverflow.com/questions/45585542/detecting-when-user-scrolls-to-bottom-of-div-with-react-js
+        
+

@@ -15,12 +15,10 @@ const App: React.FC<{}> = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <div className=''>
           <Header></Header>
           <Route exact path='/cards' component={Cards}/>
           <Route exact path='/about'component={About}/>
           <Route exact path='/credits' component={Credits}/>
-        </div>
       </div>
     </BrowserRouter>
   );  

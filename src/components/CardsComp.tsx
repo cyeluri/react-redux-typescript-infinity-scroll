@@ -13,6 +13,7 @@ interface Props {
     cardsState: Array<object>;
     // for me I have to define the actions Method in the component prop to invoke after connecting with Redux. 
     fetchCards():any;
+    onScrollEvent():any;
 }
 
 interface State {
@@ -28,8 +29,18 @@ class CardsComp extends React.Component<Props, State> {
 
     public componentDidMount() {
         console.log(this.props.fetchCards());
+        window.addEventListener('scroll', this.onScrollHandler, false);
     }
-
+    /**
+     * This method listen to the 
+     */
+    protected onScrollHandler = (e:Event) => {
+        console.log('scroll event type '+ e.type);
+        console.log('scroll scrollTo =' + document.body.scrollTop);
+        console.log('scroll height =' + window.innerHeight);
+        console.log('scroll page offset Y' + window.pageYOffset);
+        console.log('scroll height =' + document.body.clientHeight);
+    }
     public render() {
         const cardsList = this.props.cardsState.map(
             (card:any) => (
@@ -47,11 +58,12 @@ class CardsComp extends React.Component<Props, State> {
             )
         );
         return (
-        <div className="card-main">
-            <CardsSearchComp />
-            {cardsList}
-        </div>
-        
+            <React.Fragment>
+                <CardsSearchComp />
+                <div className="container">
+                    {cardsList}
+                </div>
+        </React.Fragment>
         );
     }
 }
