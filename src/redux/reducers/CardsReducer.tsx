@@ -6,6 +6,7 @@ const searchKey:string = '';
 
 const initialState:object = {
     cardsPayload: cards,
+    totalCards:0,
     searchKey
 };
 
@@ -14,10 +15,12 @@ const cardsReducer:Reducer<any,  any> = (state:any = initialState, action: any) 
     switch(action.type) {
         case FETCH_CARDS : {
             // return state copy using spread operator
+            // Combining the previous cards with newly fetch data.
              return {
                 ...state,
-                cardsPayload: action.payload
-            }      
+                cardsPayload: [...state.cardsPayload, ...action.payload],
+                totalCards:action.totalCards
+            }            
         };break;
 
         case SEARCH_CARDS : {

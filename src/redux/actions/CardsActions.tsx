@@ -8,17 +8,38 @@ import axios from 'axios';
 
 //es6 syntax
 
+/**Creating a interface to pass the parameters to fetch results in sort order along with size */
+export interface FetchParams {
+    pageSize:string,
+    type:string,
+    name:string
+}
+
+export const CARD_TYPE = 'Creature';
+let page:number = 0;
+let cardName:string = "";
+let totalCards:number = 0;
+
 export const fetchCards = () =>  (dispatch:Dispatch<any>) => {        
         console.log('fetch Cards list');
-        axios.get('https://api.magicthegathering.io/v1/cards?pageSize=20')
+        let responseHeader:any = {};
+        let payload:Array<string> = [];
+        let type:string = FETCH_CARDS;
+        page = page + 1;
+        axios.get('https://api.magicthegathering.io/v1/cards?pageSize=20;type='+CARD_TYPE+';page='+page + ';name='+ cardName)
         .then(
             response => {
-                let res: {type:string, payload:Array<any>} = {
-                    type: FETCH_CARDS,
-                    payload: response.data.cards
+                responseHeader = response.headers;
+                //Read values from header
+                totalCards = responseHeader['total-count'];
+                payload = response.data.cards;
+                //Sort the response with name as default. The API doesn't have any filters to pass for sort. we have to do in memory
+                payload.sort(function (a:string, b:string) {
+                    return a > b ? -1 : 1
+                  });
+
+                  dispatch({type,payload,totalCards});
                 }
-                dispatch(res);
-            }
         );           
     }
 
@@ -31,9 +52,12 @@ export const searchCardInputOnChange = (searchKey:string) => (dispatch:Dispatch<
     dispatch(res);
 }
 
-export const searchCards = (cardName:string) =>  (dispatch:Dispatch<any>) => {        
+export const searchCards = (cardParam:string) =>  (dispatch:Dispatch<any>) => {   
+    //Reseting the page count when we do the search     
+    page = 0;
+    cardName = cardParam;
     console.log('search Cards list');
-    axios.get('https://api.magicthegathering.io/v1/cards?pageSize=20'+';type=Creature;name='+cardName)
+    axios.get('https://api.magicthegathering.io/v1/cards?pageSize=20;type='+CARD_TYPE+';name='+cardName)
     .then(
         response => {
             let res: {type:string, payload:Array<any>} = {
