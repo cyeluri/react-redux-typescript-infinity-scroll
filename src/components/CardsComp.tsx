@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 // import the cardActions
 import {fetchCards} from '../redux/actions/CardsActions';
 import CardsSearchComp from './CardsSearchComp';
+import LoadingComp from './LoadingComp';
 
 // store will come from the applicaiton state 
 
@@ -15,6 +16,7 @@ interface Props {
     // for me I have to define the actions Method in the component prop to invoke after connecting with Redux. 
     fetchCards():any;
     onScrollEvent():any;
+    isLoading:boolean;
 }
 
 interface State {
@@ -24,13 +26,20 @@ interface State {
 
 class CardsComp extends React.Component<Props, State> {
 
+    private isLoading:boolean = true;
+
     constructor(props:Props) {
         super(props);
     }
 
     public componentDidMount() {
         this.props.fetchCards();
+        this.isLoading =  true;
         window.addEventListener('scroll', this.onDocumentScrollHandler, false);
+    }
+
+    public componentWillReceiveProps(nextProps:any) {
+        this.isLoading = nextProps.nextProps;
     }
 
     public componentWillUnmount() {
@@ -47,7 +56,10 @@ class CardsComp extends React.Component<Props, State> {
         const windowBottom = windowHeight + window.pageYOffset;
         if (windowBottom >= docHeight) {
             // RAISE FETCH event incrementing the page number 
+            this.isLoading = true;
             this.props.fetchCards();
+            //Force component to rerender to show to loader.
+            this.setState({state: this.state});
         }
     };
 
@@ -95,24 +107,34 @@ class CardsComp extends React.Component<Props, State> {
                   </div>
             )
         );
-        return (
-            <React.Fragment>
-                <CardsSearchComp />
-                <div onScroll={this.cardScrollHandler}>
-                    <h5 >
-                        <span className='text text-primary'>Total Cards : </span>
-                        <span className='text text-success'>{this.props.totalCards}</span>
-                    </h5>
+
+        if(this.props.isLoading || this.isLoading) {
+            return(
+                <React.Fragment>
+                    <LoadingComp />
+                </React.Fragment>
+            );
+        }else {
+            return(      
+                <React.Fragment>
+                    <CardsSearchComp />
+                    <div onScroll={this.cardScrollHandler}>
+                        <h5 >
+                            <span className='text text-primary'>Total Cards : </span>
+                            <span className='text text-success'>{this.props.totalCards}</span>
+                        </h5>
+                    </div>
                     {cardsList}
-                </div>
-        </React.Fragment>
-        );
+                </React.Fragment>   
+            );
+        }
     }
 }
 
 const mapStateToProps = (state: any) => ({
     cardsState: state.cardsReducer.cardsPayload,
-    totalCards: state.cardsReducer.totalCards
+    totalCards: state.cardsReducer.totalCards,
+    isLoading: state.cardsReducer.isLoading
 });
 
 //export default Cards;

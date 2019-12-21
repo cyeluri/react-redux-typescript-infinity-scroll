@@ -7,7 +7,8 @@ const searchKey:string = '';
 const initialState:object = {
     cardsPayload: cards,
     totalCards:0,
-    searchKey
+    searchKey,
+    isLoading:true
 };
 
 const cardsReducer:Reducer<any,  any> = (state:any = initialState, action: any) => {
@@ -19,7 +20,8 @@ const cardsReducer:Reducer<any,  any> = (state:any = initialState, action: any) 
              return {
                 ...state,
                 cardsPayload: [...state.cardsPayload, ...action.payload],
-                totalCards:action.totalCards
+                totalCards:action.totalCards,
+                isLoading: false
             }            
         };break;
 
