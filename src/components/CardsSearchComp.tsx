@@ -35,14 +35,14 @@ class CardsSearchComp extends React.Component<IProps, IState> {
         return (
             <div className='container'>
                 <nav className="navbar navbar-light bg-light">
-                    <form onSubmit={this.onSubmit} className='input-group'> 
+                    <form onSubmit={this.onSubmit} className='input-group'>
                         <input placeholder='Search Cards...' className='form-control  mr-sm-2'
-                        name='searchKey' 
+                        name='searchKey'
                         value={this.props.searchKey}
-                        onChange={this.onChange} 
+                        onChange={this.onChange}
                         />
                         <input className='btn btn-outline-success my-2 my-sm-0' type='submit' value="Search" />
-                    </form>
+          </form>
                 </nav>
             </div>
         )

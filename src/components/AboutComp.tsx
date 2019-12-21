@@ -12,8 +12,8 @@ export default class AboutComp extends Component<Props, State> {
 
     render() {
         return (
-            <div>
-                <h1>About</h1>
+            <div >
+                <h3 className='align-content-center'>This App is to evaluate the coding abilities of the hiring candidates</h3>
             </div>
         )
     }

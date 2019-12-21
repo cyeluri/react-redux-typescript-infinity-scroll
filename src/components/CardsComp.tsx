@@ -73,28 +73,33 @@ class CardsComp extends React.Component<Props, State> {
     public render() {
         const cardsList = this.props.cardsState.map(
             (card:any) => (
-                <div key={card.id} className='content-container'>
                   <div key={card.id} className='float-left'>
-                      <div className='card'>
-                          <h5 className='card-title card-header'>{card.name}</h5>
-                        <div className='card-body'>
-                            <div className="spinner-grow text-secondary" role="status">
-                            </div>
-                            <img src={card.imageUrl}  className='card-img-top'/>
-                            <p className="card-text">Artist :{card.artist}</p>
-                            <p className="card-text">Set Name :{card.setName}</p>
-                            <p className="card-text">Original type :{card.originalType}</p>
-                        </div>
-                      </div>
+                    <div className='card'>
+                        <h5 className='card-header'>{card.name}</h5>
+                        <img src={card.imageUrl}  className='card-img-top'/>
+                    <div className='card-body .bg-light'>
+                        <h6>
+                            <span className='text'>Artist :</span>
+                            <span className='text-secondary'>{card.artist}</span>
+                        </h6>
+                        <h6>
+                            <span className='text'>Set Name :</span>
+                            <span className='text-secondary'>{card.setName}</span>
+                        </h6>
+                        <h6>
+                            <span className='text'>Original-type :</span>
+                            <span className='text-secondary'>{card.originalType}</span>
+                        </h6>
                     </div>
-                </div>    
+                    </div>
+                  </div>
             )
         );
         return (
             <React.Fragment>
                 <CardsSearchComp />
-                <div className="container"  onScroll={this.cardScrollHandler}>
-                    <h5>
+                <div onScroll={this.cardScrollHandler}>
+                    <h5 >
                         <span className='text text-primary'>Total Cards : </span>
                         <span className='text text-success'>{this.props.totalCards}</span>
                     </h5>

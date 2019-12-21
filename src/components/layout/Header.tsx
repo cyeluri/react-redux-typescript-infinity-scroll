@@ -8,8 +8,7 @@ const Header = (): ReactElement => {
             <div className='headerStyle'>
                 <img src={logo} className="navbar-brand App-logo" alt='logo'/>
                     <Link to="/cards" className='linkStyle'>Cards</Link> |
-                    <Link to="/about" className='linkStyle'>About</Link> |
-                    <Link to="/credits" className='linkStyle'>Credits</Link>
+                    <Link to="/about" className='linkStyle'>About</Link>
             </div>
     )
 }
