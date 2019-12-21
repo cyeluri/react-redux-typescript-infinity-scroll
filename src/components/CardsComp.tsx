@@ -28,10 +28,6 @@ class CardsComp extends React.Component<Props, State> {
 
     private isLoading:boolean = true;
 
-    constructor(props:Props) {
-        super(props);
-    }
-
     public componentDidMount() {
         this.props.fetchCards();
         this.isLoading =  true;
@@ -39,7 +35,7 @@ class CardsComp extends React.Component<Props, State> {
     }
 
     public componentWillReceiveProps(nextProps:any) {
-        this.isLoading = nextProps.nextProps;
+        this.isLoading = nextProps.isLoading;
     }
 
     public componentWillUnmount() {
@@ -78,7 +74,7 @@ class CardsComp extends React.Component<Props, State> {
      */
     protected cardScrollHandler = (e:any) => {
         this.scrollHandler();
-        let element = e.target
+        let element = e.target;
         console.log('scrollHeight, scrollTop ,clientHeight = ' + element.scrollHeight +' - '+ element.scrollTop +' === '+ element.clientHeight)
     }
  
@@ -88,7 +84,7 @@ class CardsComp extends React.Component<Props, State> {
                   <div key={card.id} className='float-left'>
                     <div className='card'>
                         <h5 className='card-header'>{card.name}</h5>
-                        <img src={card.imageUrl}  className='card-img-top'/>
+                        <img src={card.imageUrl}  className='card-img-top' alt='React Icon'/>
                     <div className='card-body .bg-light'>
                         <h6>
                             <span className='text'>Artist :</span>
@@ -114,7 +110,15 @@ class CardsComp extends React.Component<Props, State> {
                     <LoadingComp />
                 </React.Fragment>
             );
-        }else {
+        }else if(cardsList.length === 0) {
+            return(
+                <React.Fragment>
+                    <CardsSearchComp />
+                    <h3>No Cards found</h3>
+                </React.Fragment>
+            );
+        }
+        else {
             return(      
                 <React.Fragment>
                     <CardsSearchComp />

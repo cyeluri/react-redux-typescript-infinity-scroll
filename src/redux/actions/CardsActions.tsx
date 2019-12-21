@@ -1,4 +1,4 @@
-import {FETCH_CARDS, SEARCH_CARDS, SEARCH_ONCHANGE} from './actionTypes';
+import {FETCH_CARDS, SEARCH_CARDS, SEARCH_ONCHANGE, SHOW_LOADING} from './actionTypes';
 import { Dispatch } from 'react';
 // import axios library to make API calls
 import axios from 'axios';
@@ -20,6 +20,9 @@ let page:number = 0;
 let cardName:string = "";
 let totalCards:number = 0;
 
+/**
+ * this method invokes the cards API to fetch results.
+ */
 export const fetchCards = () =>  (dispatch:Dispatch<any>) => {        
         console.log('fetch Cards list');
         let responseHeader:any = {};
@@ -51,7 +54,10 @@ export const searchCardInputOnChange = (searchKey:string) => (dispatch:Dispatch<
     }
     dispatch(res);
 }
-
+/**
+ * 
+ * @param cardParam This method takes input from the search form to fetch the cards based on name
+ */
 export const searchCards = (cardParam:string) =>  (dispatch:Dispatch<any>) => {   
     //Reseting the page count when we do the search     
     page = 0;
@@ -67,4 +73,11 @@ export const searchCards = (cardParam:string) =>  (dispatch:Dispatch<any>) => {
             dispatch(res);
         }
     );              
+}
+/**
+ * This method set the flag to show loading.
+ * @param isLoading 
+ */
+export const setIsLoading = (isLoading:boolean) => (dispatch:Dispatch<any>) => {
+    dispatch({type:SHOW_LOADING, isLoading});
 }

@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 
 
 // import the cardActions for search
-import {searchCardInputOnChange, searchCards} from '../redux/actions/CardsActions';
-import CardsSortComp from './CardsSortComp';
+import {searchCardInputOnChange, searchCards, setIsLoading} from '../redux/actions/CardsActions';
 
 interface IProps {
     searchCardInputOnChange(searchKey:string):any;
-    searchCards(cardName:string):any;  
+    searchCards(cardName:string):any; 
+    setIsLoading(isLoading:boolean):any; 
     searchKey: string;
 }
 interface IState {
@@ -17,13 +17,10 @@ interface IState {
 
 class CardsSearchComp extends React.Component<IProps, IState> {
 
-    constructor(props:IProps) {
-        super(props);
-    }
-
     onSubmit = (event:FormEvent<any>) => {
         console.log("Search submit");
         event.preventDefault();
+        this.props.setIsLoading(true);
         this.props.searchCards(this.props.searchKey);
     }
 
@@ -53,4 +50,4 @@ const mapStateToProps = (state: any) => ({
     searchKey: state.cardsReducer.searchKey
 });
 
-export default connect(mapStateToProps, {searchCards, searchCardInputOnChange })(CardsSearchComp);
+export default connect(mapStateToProps, {searchCards, searchCardInputOnChange, setIsLoading })(CardsSearchComp);
