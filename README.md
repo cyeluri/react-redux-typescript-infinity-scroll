@@ -1,4 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Node.js Version : `12.13.1`
 
 ## Create App with typescript 
 
@@ -12,9 +13,9 @@ npx create-react-app **--template typescript** _<app-name>_
 
 ## Redux packages
 
-npm i redux, react-redux redux-thunk
+npm i `redux react-redux redux-thunk`
 
-_redux-thunk_ is for middleware which can make asynchronous calls from actions to external API's
+`redux-thunk` is for middleware which can make asynchronous calls from actions to external API's
 
 
 ## Type-Definitions for React & Redux
@@ -34,16 +35,16 @@ _redux-thunk_ is for middleware which can make asynchronous calls from actions t
 
 npm i -D node-sass
 
-## instal axios
+## instal `axios` to make API calls
 
 npm i axios  --save
 ## 
 
-## instal react-bootstrap
+## install react-bootstrap
 
-npm i --save react-bootstrap
+npm i --save `bootstrap react-bootstrap`
+
 ## 
-
 
 In the project directory, you can run:
 
