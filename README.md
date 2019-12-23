@@ -91,29 +91,44 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-## HighSpot coding excersie Referecnes
+## HighSpot coding exercise References
 
-1. React
+1. `React`
     https://reactjs.org/tutorial/tutorial.html
-    infinityscroll
+    
+    `infinityscroll`
+    
     https://stackoverflow.com/questions/45585542/detecting-when-user-scrolls-to-bottom-of-div-with-react-js/45586395
+    
     https://stackoverflow.com/questions/15615552/get-div-height-with-plain-javascript/15615701
-    final logic :
+    
+    `final logic` :
     https://gist.github.com/enqtran/25c6b222a73dc497cc3a64c090fb6700
 
-2. Redux
-3. Typescript
+2. `Redux`
+
+    https://redux.js.org/
+    
+3. `Typescript`
+
     https://stackoverflow.com/questions/56164315/how-to-describe-type-scroll-events
 
-4. bootstrap
+4. `bootstrap`
+
     https://react-bootstrap.github.io/getting-started/introduction
+    
     https://getbootstrap.com/docs/4.4/components/navbar/?
+    
     https://blog.logrocket.com/how-to-use-bootstrap-with-react-a354715d1121/
+    
     https://codepen.io/gungorbudak/pen/ooKNpz
-5. Infinity Scroll
+    
+5. `Infinity Scroll`
+
     https://stackoverflow.com/questions/45585542/detecting-when-user-scrolls-to-bottom-of-div-with-react-js
 
-6. App Design Idea
+6. `App Design Idea`
+
     https://levelup.gitconnected.com/how-to-display-images-in-a-grid-like-google-and-flickr-c9c38a923884
         
 
