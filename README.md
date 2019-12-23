@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 npx create-react-app **--template typescript** _<app-name>_
 
+##Run the App
+1. npm install
+2. npm start
+
+# List of Dependencies
+
 ## Redux packages
 
 npm i redux, react-redux redux-thunk
@@ -12,12 +18,17 @@ _redux-thunk_ is for middleware which can make asynchronous calls from actions t
 
 
 ## Type-Definitions for React & Redux
-npm i react-dom
-npm i -D @types/react @types/react-dom @types/react-redux
-"react" - @types/react
-"react-dom" - @types/react-dom
-"redux" - (types included with npm package)*
-"react-redux" - @types/react-redux
+1. npm i react-dom
+
+2. npm i -D @types/react @types/react-dom @types/react-redux
+
+3. npm i -D "react" - @types/react
+
+4. npm i -D "react-dom" - @types/react-dom
+
+5. npm i -D "redux" - (types included with npm package)*
+
+6. npm i -D "react-redux" - @types/react-redux
 
 ## instal node-sass
 
